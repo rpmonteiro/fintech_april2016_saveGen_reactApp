@@ -56,13 +56,14 @@ const styles = StyleSheet.create({
   menuText: {
     fontWeight: '900',
   },
-  trackerContainer: {
-    flexDirection: 'row',
+  trackerListForm: {
+    marginTop: 15
   },
-  trackerIcon: {
-    flex : 1,
-    width: 120,
-    height: 120,
+  toggleText: {
+    color: 'black',
+  },
+  toggleTextOff: {
+    color: '#ddd'
   },
 });
 

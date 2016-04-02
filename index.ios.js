@@ -15,7 +15,7 @@ import React, {
 import {styles} from './styles.ios.js';
 import {WelcomeScreen} from './welcome.ios.js';
 import {FormScreen} from './form.ios.js';
-import {IconList} from './tracker-form.ios.js';
+import {TrackerList} from './tracker-form.ios.js';
 
 class Main extends Component {
   renderScene(route, nav) {
@@ -23,7 +23,7 @@ class Main extends Component {
       case 'welcome':
         return <WelcomeScreen navigator={nav} />;
       case 'icons':
-        return <IconList />;
+        return <TrackerList />;
       default:
         return (
           <NavMenu
