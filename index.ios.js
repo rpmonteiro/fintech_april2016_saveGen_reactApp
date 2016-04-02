@@ -25,7 +25,11 @@ class Main extends Component {
     switch (route.id) {
       case 'welcome':
         return <WelcomeScreen navigator={nav} />;
-      case 'survey':
+      case 'icons':
+        return <TrackerList />;
+      case 'dashboard':
+        return <Dashboard navigator={nav} />;
+      case 'surveyStart':
         return <Survey1 navigator={nav} />;
       case 'slider':
         return <SliderExample navigator={nav} />;
@@ -107,7 +111,16 @@ class NavMenu extends React.Component {
               sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
             });
           }}
-          text="Take me to the slider"
+          text="The first survey question"
+        />
+        <NavButton
+          onPress={() => {
+            this.props.navigator.push({
+              id: 'dashboard',
+              sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
+            });
+          }}
+          text="Take me to the dashboard"
         />
       </ScrollView>
     );
