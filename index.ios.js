@@ -7,6 +7,7 @@ import React, {
   Component,
   StyleSheet,
   Text,
+  SliderIOS,
   View,
   Navigator,
   ScrollView,
@@ -16,6 +17,12 @@ import {styles} from './styles.ios.js';
 import {WelcomeScreen} from './welcome.ios.js';
 import {FormScreen} from './form.ios.js';
 import {TrackerList} from './tracker-form.ios.js';
+import {Survey1} from './survey1.ios.js'
+import {Survey2} from './survey2.ios.js'
+import {Survey3} from './survey3.ios.js'
+import {Survey4} from './survey4.ios.js'
+import {Survey5} from './survey5.ios.js'
+import {Dashboard} from './dashboard.ios.js';
 
 class Main extends Component {
   renderScene(route, nav) {
@@ -24,6 +31,20 @@ class Main extends Component {
         return <WelcomeScreen navigator={nav} />;
       case 'icons':
         return <TrackerList />;
+      case 'dashboard':
+        return <Dashboard navigator={nav} />;
+      case 'surveyStart':
+        return <Survey1 navigator={nav} />;
+      case 'survey1':
+        return <Survey2 navigator={nav} />
+      case 'surveyQuestion1':
+        return <Survey2 navigator={nav} />
+      case 'surveyQuestion2':
+        return <Survey3 navigator={nav} />
+      case 'surveyQuestion3':
+        return <Survey4 navigator={nav} />
+      case 'surveyQuestion4':
+        return <Survey5 navigator={nav} />
       default:
         return (
           <NavMenu
@@ -89,11 +110,29 @@ class NavMenu extends React.Component {
         <NavButton
           onPress={() => {
             this.props.navigator.push({
-              id: 'icons',
+              id: 'surveyStart',
               sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
             });
           }}
-          text="Pick some Trackers"
+          text="Take me to the surveyStart"
+        />
+        <NavButton
+          onPress={() => {
+            this.props.navigator.push({
+              id: 'survey1',
+              sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
+            });
+          }}
+          text="The first survey question"
+        />
+        <NavButton
+          onPress={() => {
+            this.props.navigator.push({
+              id: 'dashboard',
+              sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
+            });
+          }}
+          text="Take me to the dashboard"
         />
       </ScrollView>
     );

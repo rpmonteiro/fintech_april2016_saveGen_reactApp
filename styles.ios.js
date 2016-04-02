@@ -15,6 +15,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 0.2,
   },
+  textContainer: {
+    marginTop: 200,
+    alignItems: 'center',
+    flex: 0.2,
+  },
   iconContainer: {
     alignItems: 'center',
   },
@@ -22,6 +27,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Avenir',
     fontSize: 20,
+  },
+  addMargin: {
+    margin: 10,
   },
   buttonText: {
     fontWeight: '900',
@@ -64,6 +72,9 @@ const styles = StyleSheet.create({
   },
   toggleTextOff: {
     color: '#ddd'
+  },
+  sliderContainer: {
+    margin: 30,
   },
 });
 

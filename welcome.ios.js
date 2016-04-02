@@ -75,6 +75,7 @@ let FooterButton = React.createClass({
           shadowColor="black"
           onPress={() => {
             this.props.goThrough({
+              id: 'shouldnotloadnaything',
               message: 'You just tapped through!'
             });
           }}>
