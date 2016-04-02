@@ -43,38 +43,33 @@ var TrackerIcon = React.createClass({
 var TrackerList = React.createClass({
   getInitialState: function () {
     return {
-      trackers: []
+      vices: []
     }
   },
   submitTrackers: function () {
-    var theForm = new FormData();
-    theForm.append("vices", this.state.trackers.join(","));
-    console.log(theForm);
     fetch("https://savegen.eu-gb.mybluemix.net/api/users/404/vices", {
       method: "POST",
       headers: new Headers({
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/json"
       }),
-      body: theForm
+      body: JSON.stringify(this.state)
     }).then(function (response) {
       console.log("it worked! (or didnt error), response:", response)
     }).catch(function (error) {
       console.log("something went wrong:", error)
     }).done();
+    this.props.navigator.push({
+      id: 'dashboard'
+    });
   },
   iconOnChange: function (type, checkedState) {
-    var newState = this.state.trackers;
-    console.log("called");
-    console.log(newState);
-    console.log(this.state.trackers);
+    var newState = this.state.vices;
     if (!checkedState.checked) {
-      console.log("item was checked")
       newState.push(type)
     } else {
-      console.log("item was not checked", checkedState)
       newState.splice(newState.indexOf(type), 1);
     }
-    this.setState({trackers: newState});
+    this.setState({vices: newState});
   },
   render: function () {
     var trackers = [

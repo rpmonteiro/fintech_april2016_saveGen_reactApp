@@ -29,8 +29,8 @@ class Main extends Component {
     switch (route.id) {
       case 'welcome':
         return <WelcomeScreen navigator={nav} />;
-      case 'icons':
-        return <TrackerList />;
+      case 'trackers':
+        return <TrackerList navigator={nav} />;
       case 'dashboard':
         return <Dashboard navigator={nav} />;
       case 'surveyStart':
@@ -133,6 +133,15 @@ class NavMenu extends React.Component {
             });
           }}
           text="Take me to the dashboard"
+        />
+        <NavButton
+          onPress={() => {
+            this.props.navigator.push({
+              id: 'trackers',
+              sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
+            });
+          }}
+          text="Click here to add a tracker"
         />
       </ScrollView>
     );
